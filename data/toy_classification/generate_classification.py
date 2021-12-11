@@ -1,13 +1,13 @@
-from data.toy_classification.moons import Moons, Moons_alternative
 from data.toy_classification.oned_gaussian import oned_gaussian
 from data.toy_classification.twod_gaussian import twod_gaussian
 from data.toy_classification.donuts import Donuts
+from data.toy_classification.moons import Moons
 from data.mnist.mnist_data import MNISTData
 from data.mnist.split_mnist import get_split_mnist_handlers
 from data.fashion_mnist.fashion_data import FashionMNISTData
 from data.cifar.cifar10_data import CIFAR10Data
 from data.svhn.data_svhn_data import SVHNData
-
+import os
 
 def generate_moons(config):
 
@@ -34,29 +34,29 @@ def generate_donuts(config):
     return data
 
 def generate_mnist():
-    data = MNISTData('/cluster/home/fdangelo/Thesis/SVGD_master/data/mnist', True)
+    data = MNISTData(os.getcwd()+'/mnist', True)
 
     return data
 
 def generate_split_mnist():
-    data = get_split_mnist_handlers('/cluster/home/fdangelo/Thesis/SVGD_master/data/mnist', True,num_classes_per_task = 5)
+    data = get_split_mnist_handlers(os.getcwd()+'/mnist', True,num_classes_per_task = 5)
 
     return data
 
 def generate_f_mnist():
 
-    data = FashionMNISTData('/cluster/home/fdangelo/Thesis/SVGD_master/data/fashion_mnist', True)
+    data = FashionMNISTData(os.getcwd()+'/fashion_mnist', True)
 
     return data
 
 def generate_cifar():
 
-    data = CIFAR10Data('/cluster/home/fdangelo/Thesis/SVGD_master/data/cifar', True)
+    data = CIFAR10Data(os.getcwd()+'/cifar', True)
 
     return data
 
 def generate_svhn():
 
-    data = SVHNData('/cluster/home/fdangelo/Thesis/SVGD_master/data/svhn', True)
+    data = SVHNData(os.getcwd()+'/svhn', True)
 
     return data

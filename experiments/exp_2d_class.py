@@ -1,5 +1,5 @@
-import os 
-os.chdir('/cluster/home/fdangelo/Thesis/SVGD_master')
+import os
+os.chdir('..')
 from utils.config import configuration
 import torch
 from data.generate_dataset import generate_dataset
